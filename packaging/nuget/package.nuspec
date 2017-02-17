@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/01/nuspec.xsd">
+    <metadata minClientVersion="2.5">
+        <id>leveldb-vc140</id>
+        <version>1.16.0.5</version>
+        <title>leveldb-vc140</title>
+        <authors>Google</authors>
+        <owners>kobake</owners>
+        <licenseUrl>https://raw.githubusercontent.com/google/leveldb/master/LICENSE</licenseUrl>
+        <projectUrl>https://github.com/kobake/leveldb-nuget-msvc140</projectUrl>
+        <iconUrl>https://raw.githubusercontent.com/kobake/leveldb-vc140-nuget/master/logo.png</iconUrl>
+        <requireLicenseAcceptance>true</requireLicenseAcceptance>
+        <developmentDependency>false</developmentDependency>
+        <description>LevelDB is a fast key-value storage library written at Google that provides an ordered mapping from string keys to string values.</description>
+        <summary>leveldb library packaged for Visual Studio 2015 (v140) compilers. This library is experimental, so use at your own risk.</summary>
+        <copyright>Copyright (c) 2011 The LevelDB Authors. All rights reserved.</copyright>
+        <tags>native, leveldb, C++</tags>
+        <dependencies>
+        </dependencies>
+    </metadata>
+    <files>
+        <!-- targets -->
+        <file src="package.targets" target="build\native\leveldb-vc140.targets" />
+
+        <!-- headers -->
+        <file src="..\..\include\leveldb\*.h" target="build\native\include\leveldb" />
+
+        <!-- libraries -->
+        <file src="..\..\Release\leveldb.lib" target="build\native\bin\leveldb.lib" />
+    </files>
+</package>
