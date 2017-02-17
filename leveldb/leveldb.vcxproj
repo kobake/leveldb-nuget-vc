@@ -1,5 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\LevelDB.1.16.0.5\build\native\LevelDB.props" Condition="Exists('..\packages\LevelDB.1.16.0.5\build\native\LevelDB.props')" />
+  <Import Project="..\packages\Snappy.1.1.1.7\build\native\Snappy.props" Condition="Exists('..\packages\Snappy.1.1.1.7\build\native\Snappy.props')" />
+  <Import Project="..\packages\Crc32C.1.0.4\build\native\Crc32C.props" Condition="Exists('..\packages\Crc32C.1.0.4\build\native\Crc32C.props')" />
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
@@ -133,7 +136,17 @@
   <ItemGroup>
     <Text Include="ReadMe.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
-  <ImportGroup Label="ExtensionTargets">
-  </ImportGroup>
+  <ImportGroup Label="ExtensionTargets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Crc32C.1.0.4\build\native\Crc32C.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Crc32C.1.0.4\build\native\Crc32C.props'))" />
+    <Error Condition="!Exists('..\packages\Snappy.1.1.1.7\build\native\Snappy.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Snappy.1.1.1.7\build\native\Snappy.props'))" />
+    <Error Condition="!Exists('..\packages\LevelDB.1.16.0.5\build\native\LevelDB.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\LevelDB.1.16.0.5\build\native\LevelDB.props'))" />
+  </Target>
 </Project>
