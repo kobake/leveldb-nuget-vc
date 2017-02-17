@@ -26,6 +26,7 @@
         <file src="..\..\include\leveldb\*.h" target="build\native\include\leveldb" />
 
         <!-- libraries -->
-        <file src="..\..\Release\leveldb.lib" target="build\native\bin\leveldb.lib" />
+        <file src="..\..\Release\leveldb.lib" target="build\native\bin\Release\leveldb.lib" />
+        <file src="..\..\Debug\leveldb.lib"   target="build\native\bin\Debug\leveldb.lib" />
     </files>
 </package>

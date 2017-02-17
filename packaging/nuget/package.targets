@@ -2,11 +2,17 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <!-- general -->
   <ItemDefinitionGroup>
+    <!-- include directory -->
     <ClCompile>
       <AdditionalIncludeDirectories>$(MSBuildThisFileDirectory)include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
-    <Link>
-      <AdditionalLibraryDirectories>$(MSBuildThisFileDirectory)bin\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+
+    <!-- lib directory -->
+    <Link Condition="$(Configuration.IndexOf('Release')) != -1">
+      <AdditionalLibraryDirectories>$(MSBuildThisFileDirectory)bin\Release\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <Link Condition="$(Configuration.IndexOf('Debug')) != -1">
+      <AdditionalLibraryDirectories>$(MSBuildThisFileDirectory)bin\Debug\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
 
