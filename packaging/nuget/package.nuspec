@@ -24,6 +24,7 @@
 
         <!-- headers -->
         <file src="..\..\include\leveldb\*.h" target="build\native\include\leveldb" />
+        <file src="..\..\include\*.h" target="build\native\include" />
 
         <!-- libraries -->
         <file src="..\..\Release\leveldb.lib" target="build\native\bin\Release\leveldb.lib" />
