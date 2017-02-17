@@ -28,5 +28,6 @@
         <!-- libraries -->
         <file src="..\..\Release\leveldb.lib" target="build\native\bin\Release\leveldb.lib" />
         <file src="..\..\Debug\leveldb.lib"   target="build\native\bin\Debug\leveldb.lib" />
+        <file src="..\..\Debug\leveldb.pdb"   target="build\native\bin\Debug\leveldb.pdb" />
     </files>
 </package>
