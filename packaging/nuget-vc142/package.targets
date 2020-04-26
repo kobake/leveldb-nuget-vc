@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <!-- ======================================== -->
+  <!-- preprocessor -->
+  <!-- ======================================== -->
+  <ItemDefinitionGroup>
+    <!-- include directory -->
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(MSBuildThisFileDirectory)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+
+    <!-- definitions -->
+    <ClCompile>
+      <PreprocessorDefinitions>LEVELDB_STATIC;LEVELDB_PLATFORM_WINDOWS;LEVELDB_WITH_SNAPPY;CRC32C_STATIC;SNAPPY_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+  </ItemDefinitionGroup>
+
+  <!-- ======================================== -->
+  <!-- static libraries -->
+  <!-- ======================================== -->
+  <ItemDefinitionGroup>
+    <Link>
+      <AdditionalLibraryDirectories>$(MSBuildThisFileDirectory)bin;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+
+  <!-- ======================================== -->
+  <!-- static libraries x86 -->
+  <!-- ======================================== -->
+  <ItemDefinitionGroup Condition="'$(Platform)' == 'Win32' And ('$(PlatformToolset)' == 'v142' Or '$(PlatformToolset)' == 'CTP_Nov2013') And $(Configuration.IndexOf('Debug')) != -1">
+    <Link>
+      <AdditionalDependencies>leveldb-vc142-x86-1_16_0_5-debug.lib;shlwapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+
+  <ItemDefinitionGroup Condition="'$(Platform)' == 'Win32' And ('$(PlatformToolset)' == 'v142' Or '$(PlatformToolset)' == 'CTP_Nov2013') And $(Configuration.IndexOf('Release')) != -1">
+    <Link>
+      <AdditionalDependencies>leveldb-vc142-x86-1_16_0_5.lib;shlwapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+
+  <!-- ======================================== -->
+  <!-- static libraries x64 -->
+  <!-- ======================================== -->
+  <ItemDefinitionGroup Condition="'$(Platform)' == 'x64' And ('$(PlatformToolset)' == 'v142' Or '$(PlatformToolset)' == 'CTP_Nov2013') And $(Configuration.IndexOf('Debug')) != -1">
+    <Link>
+      <AdditionalDependencies>leveldb-vc142-x64-1_16_0_5-debug.lib;shlwapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+
+  <ItemDefinitionGroup Condition="'$(Platform)' == 'x64' And ('$(PlatformToolset)' == 'v142' Or '$(PlatformToolset)' == 'CTP_Nov2013') And $(Configuration.IndexOf('Release')) != -1">
+    <Link>
+      <AdditionalDependencies>leveldb-vc142-x64-1_16_0_5.lib;shlwapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+</Project>

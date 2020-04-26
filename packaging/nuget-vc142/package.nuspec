@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/01/nuspec.xsd">
+    <metadata minClientVersion="2.5">
+        <id>leveldb-vc142</id>
+        <version>1.16.0.5</version>
+        <title>leveldb-vc142</title>
+        <authors>Google</authors>
+        <owners>kobake</owners>
+        <license type="expression">BSD-3-Clause</license>
+        <projectUrl>https://github.com/kobake/leveldb-nuget-vc</projectUrl>
+        <icon>logo.png</icon>
+        <requireLicenseAcceptance>true</requireLicenseAcceptance>
+        <developmentDependency>false</developmentDependency>
+        <summary>LevelDB for vc142. Compiler: VS 2019 16.5.4.</summary>
+        <description>LevelDB library, packaged for Visual Studio 2019 (vc142). Compiler: Visual Studio 2019 16.5.4.</description>
+        <copyright>Copyright (c) 2011 The LevelDB Authors. All rights reserved.</copyright>
+        <tags>native,leveldb,C,C++</tags>
+        <dependencies>
+        </dependencies>
+    </metadata>
+    <files>
+        <!-- package resource -->
+        <file src="logo.png"                            target="" />
+
+        <!-- targets -->
+        <file src="package.targets"                     target="build\native\leveldb-vc142.targets" />
+
+        <!-- headers -->
+        <file src="..\..\include\leveldb\*.h"           target="build\native\include\leveldb\" />
+        <file src="..\..\include\*.h"                   target="build\native\include\" />
+
+        <!-- libraries x86 -->
+        <file src="..\..\bin\Win32\Debug\leveldb.lib"   target="build\native\bin\leveldb-vc142-x86-1_16_0_5-debug.lib" />
+        <file src="..\..\bin\Win32\Debug\leveldb.pdb"   target="build\native\bin\leveldb-vc142-x86-1_16_0_5-debug.pdb" />
+        <file src="..\..\bin\Win32\Release\leveldb.lib" target="build\native\bin\leveldb-vc142-x86-1_16_0_5.lib" />
+
+        <!-- libraries x64 -->
+        <file src="..\..\bin\x64\Debug\leveldb.lib"     target="build\native\bin\leveldb-vc142-x64-1_16_0_5-debug.lib" />
+        <file src="..\..\bin\x64\Debug\leveldb.pdb"     target="build\native\bin\leveldb-vc142-x64-1_16_0_5-debug.pdb" />
+        <file src="..\..\bin\x64\Release\leveldb.lib"   target="build\native\bin\leveldb-vc142-x64-1_16_0_5.lib" />
+    </files>
+</package>
